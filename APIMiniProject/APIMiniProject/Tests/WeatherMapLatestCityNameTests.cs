@@ -2,17 +2,10 @@
 
 namespace APIMiniProject
 {
+    [TestFixture]
     public class WeatherMapLatestCityNameTests
     {
         private const string _city = "Birmingham";
-
-        private WeatherMapService _service;
-
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-            _service = new WeatherMapService(_city);
-        }
 
         private WeatherMapService CreateServiceWithArgumentCity(string city)
         {
