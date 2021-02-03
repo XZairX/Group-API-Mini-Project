@@ -22,11 +22,11 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsInvalid_ReturnsError404()
         {
-            var sut = CreateServiceWithArgumentCity(string.Empty);
+            var sut = CreateServiceWithArgumentCity("Invalid");
 
-            var result = sut.DTO.LatestWeather.name;
+            var result = sut.DTO.LatestWeather.cod;
 
-            Assert.That(result.ToString(), Is.EqualTo("djksdfjl"));
+            Assert.That(result, Is.EqualTo(404));
         }
 
         [Test]
