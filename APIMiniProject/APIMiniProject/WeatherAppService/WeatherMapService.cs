@@ -25,10 +25,22 @@ namespace APIMiniProject
             WeatherById = callManager.GetResponseByCityName(name);
             DTO.DeserializeRates(WeatherById);
         }
+        public WeatherMapService(string name, string stateCode)
+        {
+            WeatherById = callManager.GetResponseByCityNameState(name, stateCode);
+            DTO.DeserializeRates(WeatherById);
+        }
+        public WeatherMapService(string name, string stateCode, string countryCode)
+        {
+            WeatherById = callManager.GetResponseByCityNameStateCountry(name, stateCode, countryCode);
+            DTO.DeserializeRates(WeatherById);
+        }
         public WeatherMapService(double longitude, double latitude)
         {
             WeatherById = callManager.GetResponseByLongAndLat(longitude, latitude);
             DTO.DeserializeRates(WeatherById);
         }
+
+
     }
 }
