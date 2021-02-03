@@ -55,16 +55,6 @@ namespace APIMiniProject
         }
         //---
         [Test]
-        public void LondonCity_USStateAndUKCountry_ReturnsDefaultCountryCodeOfGB()
-        {
-            var sut = new WeatherMapService(_city, _state, _countryGB);
-
-            var result = sut.DTO.LatestWeather.sys.country;
-
-            Assert.That(result, Is.EqualTo("GB"));
-        }
-
-        [Test]
         public void LondonCity_InvalidStateAndUSCountry_ReturnsDefaultCountryCode()
         {
             var sut = new WeatherMapService(_city, _invalidString, _countryUS);
@@ -75,7 +65,7 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void LondonCity_USStateAndInvalidCountry_ReturnsDefaultCountryCode()
+        public void LondonCity_StateAndInvalidCountry_ReturnsDefaultCountryCode()
         {
             var sut = new WeatherMapService(_city, _state, _invalidString);
 
@@ -85,7 +75,17 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void LondonCity_USStateAndUSCountry_ReturnsCountryCodeOfUS()
+        public void LondonCity_StateAndUKCountry_ReturnsDefaultCountryCodeOfGB()
+        {
+            var sut = new WeatherMapService(_city, _state, _countryGB);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("GB"));
+        }
+
+        [Test]
+        public void LondonCity_StateAndUSCountry_ReturnsCountryCodeOfUS()
         {
             var sut = new WeatherMapService(_city, _state, _countryUS);
 
