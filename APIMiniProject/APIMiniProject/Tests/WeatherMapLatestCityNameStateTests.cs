@@ -2,11 +2,12 @@
 
 namespace APIMiniProject
 {
+    //State ("OH" Ohio for London) seems to be broken. Works with country code though?
     [TestFixture]
     public class WeatherMapCityNameStateTests
     {
         private const string _city = "London";
-        private const string _state = "OH";
+        private const string _state = "US";
         private const string _invalidString = "invalidString";
 
         [Test]
@@ -30,16 +31,24 @@ namespace APIMiniProject
             Assert.That(result, Is.EqualTo(200));
         }
 
-        //State cannot be used alone and requires a country
-        //Using a non-US country will override the state
+        [Test]
+        public void LondonCity_DefaultValue_ReturnsCountryCodeOfGB()
+        {
+            var sut = new WeatherMapService(_city);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("GB"));
+        }
+
         [Test]
         public void LondonCity_USCountry_ReturnsCountryCodeOfUS()
         {
             var sut = new WeatherMapService(_city, _state);
 
-            var result = sut.DTO.LatestWeather.name;
+            var result = sut.DTO.LatestWeather.sys.country;
 
-            Assert.That(result, Is.EqualTo(_city));
+            Assert.That(result, Is.EqualTo("US"));
         }
     }
 }
