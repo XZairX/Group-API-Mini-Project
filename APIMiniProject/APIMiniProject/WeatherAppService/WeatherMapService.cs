@@ -1,5 +1,6 @@
 ﻿using APIMiniProject.DataHandling;
 using APIMiniProject.HTTPManager;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace APIMiniProject
             DTO.DeserializeRates(WeatherById);
         }
         public WeatherMapService(string name, string stateCode, string countryCode)
-        {
+        {            
             WeatherById = callManager.GetResponseByCityNameStateCountry(name, stateCode, countryCode);
             DTO.DeserializeRates(WeatherById);
         }
@@ -39,8 +40,13 @@ namespace APIMiniProject
         {
             WeatherById = callManager.GetResponseByLongAndLat(longitude, latitude);
             DTO.DeserializeRates(WeatherById);
+            
         }
+        public WeatherMapService(int zip, string countryCode)
+        {
+            WeatherById = callManager.GetResponseByZip(zip, countryCode);
+            DTO.DeserializeRates(WeatherById);
 
-
+        }
     }
 }
