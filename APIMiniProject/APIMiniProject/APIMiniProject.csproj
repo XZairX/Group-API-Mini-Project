@@ -80,6 +80,7 @@
     <Compile Include="Tests\WeatherMapLatestCityNameTests.cs" />
     <Compile Include="Tests\WeatherMapLatestCityZipTests.cs" />
     <Compile Include="Tests\WeatherMapLatestLongLatTests.cs" />
+    <Compile Include="Tests\WeatherMapLatestCityNameStateTests.cs" />
     <Compile Include="WeatherAppService\DataHandling\LatestWeatherMapDTO.cs" />
     <Compile Include="WeatherAppService\HTTPManager\LatestWeatherMapCallManager.cs" />
     <Compile Include="Tests\WeatherMapLatestCityIDTests.cs" />
