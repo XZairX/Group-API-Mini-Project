@@ -76,16 +76,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataHandling\LatestWeatherMapDTO.cs" />
-    <Compile Include="HTTPManager\LatestWeatherMapCallManager.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="WeatherAppService\DataHandling\LatestWeatherMapDTO.cs" />
+    <Compile Include="WeatherAppService\HTTPManager\LatestWeatherMapCallManager.cs" />
+    <Compile Include="Tests\WeatherAppLatestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataHandling\LatestWeatherMapModel.cs" />
+    <Compile Include="WeatherAppService\DataHandling\LatestWeatherMapModel.cs" />
+    <Compile Include="WeatherAppService\HTTPManager\WeatherMapBaseAPI.cs" />
     <Compile Include="WeatherMapConfigReader.cs" />
-    <Compile Include="WeatherMapService.cs" />
+    <Compile Include="WeatherAppService\WeatherMapService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

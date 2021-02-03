@@ -23,7 +23,7 @@ namespace APIMiniProject
 
         public IRestResponse Execute(RestRequest request, RestSharp.Method method)
         {
-            return _client.Execute(request);
+            return _client.Execute(request, method);
         }
     }
 }
