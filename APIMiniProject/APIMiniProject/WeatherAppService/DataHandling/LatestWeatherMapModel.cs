@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace APIMiniProject
 {
@@ -10,6 +11,7 @@ namespace APIMiniProject
     {
         public Coord coord { get; set; }
         public Weather[] weather { get; set; }
+        [JsonProperty("base")]
         public string _base { get; set; }
         public Main main { get; set; }
         public int visibility { get; set; }
