@@ -20,13 +20,23 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void CityNameQuery_CityIsInvalid_ReturnsError404()
+        public void CityNameQuery_CityIsInvalid_ReturnsStatusCode404()
         {
             var sut = CreateServiceWithArgumentCity("Invalid");
 
             var result = sut.DTO.LatestWeather.cod;
 
             Assert.That(result, Is.EqualTo(404));
+        }
+
+        [Test]
+        public void CityNameQuery_CityIsValid_ReturnsStatusCode200()
+        {
+            var sut = CreateServiceWithArgumentCity(_city);
+
+            var result = sut.DTO.LatestWeather.cod;
+
+            Assert.That(result, Is.EqualTo(200));
         }
 
         [Test]
