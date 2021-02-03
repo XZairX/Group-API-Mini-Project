@@ -50,13 +50,12 @@ namespace APIMiniProject.HTTPManager
             return FinishRequest(request);
         }
 
-        public string GetResponseByZip(string zip, string countryCode)
+        public string GetResponseByZip(int zip, string countryCode)
         {
             var request = new RestRequest("/weather");
             request.AddParameter("zip", $"{zip},{countryCode}");
             return FinishRequest(request);
         }
-
 
         public string FinishRequest(RestRequest request)
 		{
