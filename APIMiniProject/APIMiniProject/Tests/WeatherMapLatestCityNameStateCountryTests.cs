@@ -18,6 +18,16 @@ namespace APIMiniProject
         }
 
         [Test]
+        public void CityNameStateQuery_ValidArguments_ReturnsStatusCode200()
+        {
+            var sut = new WeatherMapService(_city, _state, _countryUS);
+
+            var result = sut.DTO.LatestWeather.cod;
+
+            Assert.That(result, Is.EqualTo(200));
+        }
+
+        [Test]
         public void LondonCity_DefaultValue_ReturnsCountryCodeOfGB()
         {
             var sut = new WeatherMapService(_city);
@@ -77,16 +87,6 @@ namespace APIMiniProject
             var result = sut.DTO.LatestWeather.sys.country;
 
             Assert.That(result, Is.EqualTo("GB"));
-        }
-
-        [Test]
-        public void CityNameStateQuery_ValidArguments_ReturnsStatusCode200()
-        {
-            var sut = CreateServiceWithArgumentCityState(_city, _state, _countryUS);
-
-            var result = sut.DTO.LatestWeather.cod;
-
-            Assert.That(result, Is.EqualTo(200));
         }
 
         [Test]
