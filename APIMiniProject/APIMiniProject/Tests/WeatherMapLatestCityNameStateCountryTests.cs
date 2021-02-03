@@ -7,8 +7,9 @@ namespace APIMiniProject
     {
         private const string _cityUK = "Birmingham";
         private const string _cityUS = "Miami";
-        private const string _stateUK = "England";
+        private const string _stateUK = "EN";
         private const string _stateUS = "FL";
+        private const string _countryUK = "UK";
         private const string _countryUS = "US";
 
         private WeatherMapService CreateServiceWithArgumentCityState(
@@ -18,13 +19,23 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void CityNameStateQuery_StateIsInvalid_ReturnsStatusCode404()
+        public void CityNameStateQuery_ValidArguments_ReturnsStatusCode200()
         {
             var sut = CreateServiceWithArgumentCityState(_cityUS, _stateUS, _stateUS);
 
             var result = sut.DTO.LatestWeather.cod;
 
-            Assert.That(result, Is.EqualTo(404));
+            Assert.That(result, Is.EqualTo(200));
+        }
+
+        [Test]
+        public void CityNameStateQuery_AlwaysReturnsCityIfNameIsValid()
+        {
+            var sut = CreateServiceWithArgumentCityState(_cityUS, _stateUK, _countryUK);
+
+            var result = sut.DTO.LatestWeather.name;
+
+            Assert.That(result, Is.EqualTo(_cityUS));
         }
     }
 }
