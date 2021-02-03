@@ -5,12 +5,11 @@ namespace APIMiniProject
     [TestFixture]
     public class WeatherMapLatestCityNameStateCountryTests
     {
-        //2643743 UK
-        //4517009 US
         private const string _city = "London";
         private const string _state = "OH";
         private const string _countryUK = "GB";
         private const string _countryUS = "US";
+        private const string _invalidString = "invalidString";
 
         private WeatherMapService CreateServiceWithArgumentCityState(
             string city, string state, string country)
@@ -58,6 +57,26 @@ namespace APIMiniProject
             var result = sut.DTO.LatestWeather.sys.country;
 
             Assert.That(result, Is.EqualTo("US"));
+        }
+
+        [Test]
+        public void LondonCity_InvalidStateAndUSCountry_ReturnsDefaultCountryCode()
+        {
+            var sut = new WeatherMapService(_city, _invalidString, _countryUS);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("GB"));
+        }
+
+        [Test]
+        public void LondonCity_USStateAndInvalidCountry_ReturnsDefaultCountryCode()
+        {
+            var sut = new WeatherMapService(_city, _state, _invalidString);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("GB"));
         }
 
         [Test]
