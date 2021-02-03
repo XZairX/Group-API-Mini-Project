@@ -19,21 +19,30 @@ namespace APIMiniProject
             return new WeatherMapService(city);
         }
 
-        [Ignore("In progress")]
         [Test]
-        public void CityNameQuery_InvalidCity_ReturnsError404()
+        public void CityNameQuery_CityIsInvalid_ReturnsError404()
         {
-            string invalidCity = "invalidCity";
+            var sut = CreateServiceWithArgumentCity(string.Empty);
 
-            var result = new WeatherMapService(invalidCity);
+            var result = sut.DTO.LatestWeather.name;
 
-            Assert.That(result.ToString(), Is.EqualTo(""));
+            Assert.That(result.ToString(), Is.EqualTo("djksdfjl"));
         }
 
         [Test]
-        public void CityNameQuery_CityIsValidAndHasUppercaseFirstLetter_ReturnsCity()
+        public void CityNameQuery_CityIsValidAndLowerCase_ReturnsCity()
         {
-            var sut = CreateServiceWithArgumentCity(_city);
+            var sut = CreateServiceWithArgumentCity(_city.ToLower());
+
+            var result = sut.DTO.LatestWeather.name;
+
+            Assert.That(result, Is.EqualTo(_city));
+        }
+
+        [Test]
+        public void CityNameQuery_CityIsValidAndUpperCase_ReturnsCity()
+        {
+            var sut = CreateServiceWithArgumentCity(_city.ToUpper());
 
             var result = sut.DTO.LatestWeather.name;
 
