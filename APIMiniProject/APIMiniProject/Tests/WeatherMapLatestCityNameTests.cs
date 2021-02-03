@@ -1,17 +1,25 @@
 ﻿using NUnit.Framework;
-using APIMiniProject.HTTPManager;
 
 namespace APIMiniProject
 {
     public class WeatherMapLatestCityNameTests
     {
-        public WeatherMapService service;
+        private const string _city = "Birmingham";
+
+        private WeatherMapService _service;
+
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+            _service = new WeatherMapService(_city);
+        }
 
         [Test]
-        public void WebCallSuccessCheck()
+        public void CityNameQuery_ReturnsCity()
         {
-            service = new WeatherMapService("Birmingham");
-            Assert.That(service.DTO.LatestWeather.name.ToString(), Is.EqualTo(""));
+            var result = _service.DTO.LatestWeather.name;
+
+            Assert.That(result, Is.EqualTo(_city));
         }
 
     }
