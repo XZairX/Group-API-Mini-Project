@@ -3,7 +3,7 @@ using APIMiniProject.HTTPManager;
 
 namespace APIMiniProject
 {
-    public class UnitTest1
+    public class WeatherMapLatestCityIDTests
     {
         public WeatherMapService service;
 
