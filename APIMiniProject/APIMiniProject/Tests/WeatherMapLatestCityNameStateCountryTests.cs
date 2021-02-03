@@ -19,7 +19,7 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void GB()
+        public void LondonCity_DefaultValue_ReturnsCountryCodeOfGB()
         {
             var sut = new WeatherMapService(_city);
 
@@ -31,9 +31,29 @@ namespace APIMiniProject
         //State cannot be used alone and requires a country
         //Using a non-US country will override the state
         [Test]
-        public void US()
+        public void LondonCity_USCountry_ReturnsCountryCodeOfUS()
         {
             var sut = new WeatherMapService(_city, _countryUS);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("US"));
+        }
+
+        [Test]
+        public void LondonCity_USStateAndUKCountry_ReturnsCountryCodeOfUK()
+        {
+            var sut = new WeatherMapService(_city, _state, _countryUK);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("GB"));
+        }
+
+        [Test]
+        public void LondonCity_USStateAndUSCountry_ReturnsCountryCodeOfUS()
+        {
+            var sut = new WeatherMapService(_city, _state, _countryUS);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
