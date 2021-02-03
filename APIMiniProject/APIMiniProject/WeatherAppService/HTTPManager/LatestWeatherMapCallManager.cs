@@ -9,9 +9,11 @@ namespace APIMiniProject.HTTPManager
 {
     public class LatestWeatherMapCallManager : WeatherMapBaseAPI
     {
-        public string GetResponse()
+        public string GetResponse(int id)
         {
-            var request = new RestRequest("/weather" + "appid" + WeatherMapConfigReader.ApiKey);
+            var request = new RestRequest("/weather");
+            request.AddParameter("id", id);
+            request.AddParameter("appid", WeatherMapConfigReader.ApiKey);
             var response = Execute(request, Method.GET);
             return response.Content;
         }
