@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="city.list.json" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
