@@ -76,6 +76,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\WeatherMapLatestCityNameStateCountryTests.cs" />
     <Compile Include="Tests\WeatherMapLatestCityNameTests.cs" />
     <Compile Include="WeatherAppService\DataHandling\LatestWeatherMapDTO.cs" />
     <Compile Include="WeatherAppService\HTTPManager\LatestWeatherMapCallManager.cs" />

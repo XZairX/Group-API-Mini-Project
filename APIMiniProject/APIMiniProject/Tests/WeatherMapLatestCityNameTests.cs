@@ -51,5 +51,15 @@ namespace APIMiniProject
 
             Assert.That(result, Is.EqualTo(_city));
         }
+
+        [Test]
+        public void Base()
+        {
+            var sut = CreateServiceWithArgumentCity(_city);
+
+            var result = sut.DTO.LatestWeather._base;
+
+            Assert.That(result, Is.EqualTo("sjlf"));
+        }
     }
 }
