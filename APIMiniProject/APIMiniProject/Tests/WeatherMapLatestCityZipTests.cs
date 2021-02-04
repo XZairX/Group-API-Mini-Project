@@ -33,7 +33,6 @@ namespace APIMiniProject
         public void ZipAndCountryCodeGivesCorrectResponse()
         {
             Assert.That(_service.DTO.LatestWeather.name.ToString(), Is.EqualTo("White House"));
-            Assert.That(_service.DTO.LatestWeather.id, Is.EqualTo(0));
         }
 
         [Test]

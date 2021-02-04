@@ -6,19 +6,22 @@ namespace APIMiniProject
     public class WeatherMapLatestLongLatTests
     {
         private WeatherMapService service;
+        private WeatherMapService loughboroughService;
         private WeatherMapService invalidLongService;
         private WeatherMapService invalidLatService;
-        private double _longitude = -1.8998;
-        private double _latitude = 52.4814;
-        private double _invalid = 500;
+        private float _longitude = -1.89983f;
+        private float _latitude = 52.481419f;
+        private float _loughboroughLongitude = -1.2f;
+        private float _loughboroughLatitude = 52.7667f;
+        private float _invalid = 500f;
 
         [OneTimeSetUp]
         public void LongitudeAndLatitudeSetup()
         {
-            service = new WeatherMapService(_longitude, _latitude);
-
-            invalidLongService = new WeatherMapService(_invalid, _latitude);
-            invalidLatService = new WeatherMapService(_longitude, _invalid);
+            service = new WeatherMapService(_latitude, _longitude);
+            loughboroughService = new WeatherMapService(_loughboroughLatitude, _loughboroughLongitude);
+            invalidLongService = new WeatherMapService(_latitude, _invalid);
+            invalidLatService = new WeatherMapService(_invalid, _longitude);
         }
 
         [Test]
@@ -27,10 +30,17 @@ namespace APIMiniProject
             Assert.That(service.DTO.LatestWeather.cod, Is.EqualTo(200));
         }
 
+        // Known API issue
+        [Test]
+        public void LongitudeAndLatitudeReturnOneOfTheCorrectCityIDs()
+        {
+            Assert.That(service.DTO.LatestWeather.id, Is.EqualTo(2655603).Or.EqualTo(3333125));
+        }
+
         [Test]
         public void LongitudeAndLatitudeReturnCorrectCityID()
         {
-            Assert.That(service.DTO.LatestWeather.id, Is.EqualTo(3333125));
+            Assert.That(loughboroughService.DTO.LatestWeather.id, Is.EqualTo(2643567));
         }
 
         [Test]
