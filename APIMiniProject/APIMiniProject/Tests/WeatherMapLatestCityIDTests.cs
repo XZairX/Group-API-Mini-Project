@@ -2,6 +2,7 @@
 
 namespace APIMiniProject
 {
+    [TestFixture]
     public class WeatherMapLatestCityIDTests
     {
         private WeatherMapService _service;

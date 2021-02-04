@@ -2,6 +2,7 @@
 
 namespace APIMiniProject
 {
+    [TestFixture]
     public class WeatherMapLatestZipTests
     {
         private readonly int _zip = 37188;
