@@ -6,6 +6,7 @@ namespace APIMiniProject
     public class WeatherMapService
     {
         public LatestWeatherMapCallManager CallManager { get; set; } = new LatestWeatherMapCallManager();
+
         public LatestWeatherMapDTO DTO { get; set; } = new LatestWeatherMapDTO();
 
         public string WeatherResponse { get; set; }
