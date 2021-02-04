@@ -4,63 +4,121 @@ namespace APIMiniProject
 {
     public class LatestWeatherRoot
     {
-        public Coord coord { get; set; }
-        public Weather[] weather { get; set; }
+        [JsonProperty("coord")]
+        public Coord Coord { get; set; }
+
+        [JsonProperty("weather")]
+        public Weather[] Weather { get; set; }
+
         [JsonProperty("base")]
-        public string _base { get; set; }
-        public Main main { get; set; }
-        public int visibility { get; set; }
-        public Wind wind { get; set; }
-        public Clouds clouds { get; set; }
-        public int dt { get; set; }
-        public Sys sys { get; set; }
-        public int timezone { get; set; }
-        public int id { get; set; }
-        public string name { get; set; }
-        public int cod { get; set; }
+        public string Base { get; set; }
+
+        [JsonProperty("main")]
+        public Main Main { get; set; }
+
+        [JsonProperty("visibility")]
+        public int Visibility { get; set; }
+
+        [JsonProperty("Wind")]
+        public Wind Wind { get; set; }
+        
+        [JsonProperty("clouds")]
+        public Clouds Clouds { get; set; }
+
+        [JsonProperty("dt")]
+        public int Dt { get; set; }
+
+        [JsonProperty("sys")]
+        public Sys Sys { get; set; }
+
+        [JsonProperty("timezone")]
+        public int Timezone { get; set; }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("cod")]
+        public int Cod { get; set; }
     }
 
     public class Coord
     {
-        public float lon { get; set; }
-        public float lat { get; set; }
+        [JsonProperty("lon")]
+        public float Lon { get; set; }
+
+        [JsonProperty("lat")]
+        public float Lat { get; set; }
     }
 
     public class Main
     {
-        public float temp { get; set; }
-        public float feels_like { get; set; }
-        public float temp_min { get; set; }
-        public float temp_max { get; set; }
-        public int pressure { get; set; }
-        public int humidity { get; set; }
+        [JsonProperty("temp")]
+        public float Temp { get; set; }
+
+        [JsonProperty("feels_like")]
+        public float FeelsLike { get; set; }
+
+        [JsonProperty("temp_min")]
+        public float TempMin { get; set; }
+
+        [JsonProperty("temp_max")]
+        public float TempMax { get; set; }
+
+        [JsonProperty("pressure")]
+        public int Pressure { get; set; }
+
+        [JsonProperty("humidity")]
+        public int Humidity { get; set; }
     }
 
     public class Wind
     {
-        public float speed { get; set; }
-        public int deg { get; set; }
+        [JsonProperty("speed")]
+        public float Speed { get; set; }
+
+        [JsonProperty("deg")]
+        public int Deg { get; set; }
     }
 
     public class Clouds
     {
-        public int all { get; set; }
+        [JsonProperty("all")]
+        public int All { get; set; }
     }
 
     public class Sys
     {
-        public int type { get; set; }
-        public int id { get; set; }
-        public string country { get; set; }
-        public int sunrise { get; set; }
-        public int sunset { get; set; }
+        [JsonProperty("type")]
+        public int Type { get; set; }
+
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("country")]
+        public string Country { get; set; }
+
+        [JsonProperty("sunrise")]
+        public int Sunrise { get; set; }
+
+        [JsonProperty("sunset")]
+        public int Sunset { get; set; }
     }
 
     public class Weather
     {
-        public int id { get; set; }
-        public string main { get; set; }
-        public string description { get; set; }
-        public string icon { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
+        [JsonProperty("main")]
+        public string Main { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("icon")]
+        public string Icon { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_invalidString, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(404));
         }
@@ -40,7 +40,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(200));
         }
@@ -50,7 +50,7 @@ namespace APIMiniProject
         {
             var sut = new WeatherMapService(_city);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.Not.EqualTo("US"));
         }
@@ -60,7 +60,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, _state);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }
@@ -71,7 +71,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, state);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }

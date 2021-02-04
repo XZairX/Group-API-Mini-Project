@@ -27,7 +27,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _invalidString, _invalidString, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(404));
         }
@@ -38,7 +38,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _invalidString, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(200));
         }
@@ -49,7 +49,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _invalidString, _countryUS);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.Not.EqualTo("US"));
         }
@@ -60,7 +60,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _invalidString);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.Not.EqualTo("US"));
         }
@@ -71,7 +71,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _countryGB);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.Not.EqualTo("US"));
         }
@@ -82,7 +82,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _countryUS);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }
@@ -93,7 +93,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityStateAndCountry(_city, _state, country);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }

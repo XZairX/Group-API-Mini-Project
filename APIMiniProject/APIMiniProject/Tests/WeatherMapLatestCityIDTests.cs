@@ -20,31 +20,31 @@ namespace APIMiniProject
         [Test]
         public void SuccesfulRequestByCityIdReturns200()
         {
-            Assert.That(_service.DTO.Properties.cod, Is.EqualTo(200));
+            Assert.That(_service.DTO.Properties.Cod, Is.EqualTo(200));
         }
 
         [Test]
         public void RequestNotFoundByCityIdReturns400()
         {
-            Assert.That(_invalidIDService.DTO.Properties.cod, Is.EqualTo(400));
+            Assert.That(_invalidIDService.DTO.Properties.Cod, Is.EqualTo(400));
         }
 
         [Test]
         public void RequestNotFoundByCityIdReturns404()
         {
-            Assert.That(_notFoundIDService.DTO.Properties.cod, Is.EqualTo(404));
+            Assert.That(_notFoundIDService.DTO.Properties.Cod, Is.EqualTo(404));
         }
 
         [Test]
         public void JSONTest_ReturnsCorrectCountryGivenID()
         {
-            Assert.That(_service.DTO.Properties.sys.country.ToString(), Is.EqualTo("GB"));
+            Assert.That(_service.DTO.Properties.Sys.Country.ToString(), Is.EqualTo("GB"));
         }
 
         [Test]
         public void JSONTest_ReturnsCorrectCountryNameGivenID()
         {
-            Assert.That(_service.DTO.Properties.name.ToString(), Is.EqualTo("Birmingham"));
+            Assert.That(_service.DTO.Properties.Name.ToString(), Is.EqualTo("Birmingham"));
         }
     }
 }

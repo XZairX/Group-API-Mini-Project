@@ -25,25 +25,25 @@ namespace APIMiniProject
         [Test]
         public void WebCallSuccessCheck()
         {
-            Assert.That(_service.DTO.Properties.cod, Is.EqualTo(200));
+            Assert.That(_service.DTO.Properties.Cod, Is.EqualTo(200));
         }
 
         [Test]
         public void ZipAndCountryCodeGivesCorrectNameResponse()
         {
-            Assert.That(_service.DTO.Properties.name.ToString(), Is.EqualTo("White House"));
+            Assert.That(_service.DTO.Properties.Name.ToString(), Is.EqualTo("White House"));
         }
 
         [Test]
         public void InvalidZipGiveseErrorMessage()
         {
-            Assert.That(_invalidZipService.DTO.Properties.cod, Is.EqualTo(400));
+            Assert.That(_invalidZipService.DTO.Properties.Cod, Is.EqualTo(400));
         }
 
         [Test]
         public void InvalidCountryCodeGiveseErrorMessage()
         {
-            Assert.That(_invalidCountryService.DTO.Properties.cod, Is.EqualTo(404));
+            Assert.That(_invalidCountryService.DTO.Properties.Cod, Is.EqualTo(404));
         }
     }
 }
