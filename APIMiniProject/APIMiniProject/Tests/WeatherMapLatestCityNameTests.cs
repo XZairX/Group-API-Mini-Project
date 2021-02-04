@@ -5,7 +5,8 @@ namespace APIMiniProject
     [TestFixture]
     public class WeatherMapLatestCityNameTests
     {
-        private const string _city = "london";
+        private const string _city = "London";
+        private const string _cityLowercase = "london";
         private const string _cityUppercase = "LONDON";
 
         private WeatherMapService WeatherServiceWithCity(string city)
@@ -33,7 +34,7 @@ namespace APIMiniProject
             Assert.That(result, Is.EqualTo(200));
         }
 
-        [TestCase(_city)]
+        [TestCase(_cityLowercase)]
         [TestCase(_cityUppercase)]
         public void CityNameQuery_CityIsValid_ReturnsCityRegardlessOfLetterCasing(string city)
         {
