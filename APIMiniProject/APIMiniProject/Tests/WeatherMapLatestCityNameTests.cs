@@ -7,7 +7,7 @@ namespace APIMiniProject
     {
         private const string _city = "Birmingham";
 
-        private WeatherMapService CreateServiceWithArgumentCity(string city)
+        private WeatherMapService WeatherServiceWithCity(string city)
         {
             return new WeatherMapService(city);
         }
@@ -15,7 +15,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsInvalid_ReturnsStatusCode404()
         {
-            var sut = CreateServiceWithArgumentCity("Invalid");
+            var sut = WeatherServiceWithCity("Invalid");
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -25,7 +25,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsValid_ReturnsStatusCode200()
         {
-            var sut = CreateServiceWithArgumentCity(_city);
+            var sut = WeatherServiceWithCity(_city);
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -35,7 +35,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsValidAndLowerCase_ReturnsCity()
         {
-            var sut = CreateServiceWithArgumentCity(_city.ToLower());
+            var sut = WeatherServiceWithCity(_city.ToLower());
 
             var result = sut.DTO.LatestWeather.name;
 
@@ -45,7 +45,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsValidAndUpperCase_ReturnsCity()
         {
-            var sut = CreateServiceWithArgumentCity(_city.ToUpper());
+            var sut = WeatherServiceWithCity(_city.ToUpper());
 
             var result = sut.DTO.LatestWeather.name;
 

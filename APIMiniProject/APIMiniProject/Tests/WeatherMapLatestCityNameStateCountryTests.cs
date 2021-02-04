@@ -11,10 +11,16 @@ namespace APIMiniProject
         private const string _countryUS = "US";
         private const string _invalidString = "invalidString";
 
+        private WeatherMapService WeatherServiceWithCityStateAndCountry(
+            string city, string state, string country)
+        {
+            return new WeatherMapService(city, state, country);
+        }
+
         [Test]
         public void CityNameStateQuery_InvalidCity_ReturnsStatusCode404()
         {
-            var sut = new WeatherMapService(
+            var sut = WeatherServiceWithCityStateAndCountry(
                 _invalidString, _invalidString, _invalidString);
 
             var result = sut.DTO.LatestWeather.cod;
@@ -25,7 +31,8 @@ namespace APIMiniProject
         [Test]
         public void CityNameStateQuery_ValidCity_ReturnsStatusCode200()
         {
-            var sut = new WeatherMapService(_city, _invalidString, _invalidString);
+            var sut = WeatherServiceWithCityStateAndCountry(
+                _city, _invalidString, _invalidString);
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -57,7 +64,8 @@ namespace APIMiniProject
         [Test]
         public void LondonCity_InvalidStateAndUSCountry_ReturnsDefaultCountryCode()
         {
-            var sut = new WeatherMapService(_city, _invalidString, _countryUS);
+            var sut = WeatherServiceWithCityStateAndCountry(
+                _city, _invalidString, _countryUS);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
@@ -67,7 +75,8 @@ namespace APIMiniProject
         [Test]
         public void LondonCity_StateAndInvalidCountry_ReturnsDefaultCountryCode()
         {
-            var sut = new WeatherMapService(_city, _state, _invalidString);
+            var sut = WeatherServiceWithCityStateAndCountry(
+                _city, _state, _invalidString);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
@@ -77,7 +86,8 @@ namespace APIMiniProject
         [Test]
         public void LondonCity_StateAndUKCountry_ReturnsDefaultCountryCodeOfGB()
         {
-            var sut = new WeatherMapService(_city, _state, _countryGB);
+            var sut = WeatherServiceWithCityStateAndCountry(
+                _city, _state, _countryGB);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
@@ -87,7 +97,8 @@ namespace APIMiniProject
         [Test]
         public void LondonCity_StateAndUSCountry_ReturnsCountryCodeOfUS()
         {
-            var sut = new WeatherMapService(_city, _state, _countryUS);
+            var sut = WeatherServiceWithCityStateAndCountry(
+                _city, _state, _countryUS);
 
             var result = sut.DTO.LatestWeather.sys.country;
 

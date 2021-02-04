@@ -10,7 +10,7 @@ namespace APIMiniProject
         private const string _state = "US";
         private const string _invalidString = "invalidString";
 
-        private WeatherMapService CreateServiceWithArgumentCityAndState(
+        private WeatherMapService WeatherServiceWithCityAndState(
             string city, string state)
         {
             return new WeatherMapService(city, state);
@@ -19,8 +19,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameStateQuery_InvalidCity_ReturnsStatusCode404()
         {
-            var sut = CreateServiceWithArgumentCityAndState(
-                _invalidString, _invalidString);
+            var sut = WeatherServiceWithCityAndState(_invalidString, _invalidString);
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -30,7 +29,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameStateQuery_ValidCity_ReturnsStatusCode200()
         {
-            var sut = CreateServiceWithArgumentCityAndState(_city, _invalidString);
+            var sut = WeatherServiceWithCityAndState(_city, _invalidString);
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -50,7 +49,7 @@ namespace APIMiniProject
         [Test]
         public void LondonCity_USCountry_ReturnsCountryCodeOfUS()
         {
-            var sut = CreateServiceWithArgumentCityAndState(_city, _state);
+            var sut = WeatherServiceWithCityAndState(_city, _state);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
