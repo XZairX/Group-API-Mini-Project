@@ -9,7 +9,7 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 
 
 
-![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/Images/ClassDiagram.png)
+![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/images/class-diagram.png)
 
 
 
@@ -51,7 +51,7 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 
 ### SP-API Project Board Start
 
-![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/Images/sprint-1-start.png)
+![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/images/sprint-1-start.png)
 
 ### Sprint Lifecycle
 
@@ -97,7 +97,7 @@ One observation we made once testing the API was that we potentially chose a lim
 
 ### SP-1 Project Board Finish
 
-![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/Images/sprint-1-end.png)
+![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/images/sprint-1-end.png)
 
 ### 
 
