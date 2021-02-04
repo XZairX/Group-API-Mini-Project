@@ -5,10 +5,10 @@ namespace APIMiniProject
 {
     public class WeatherMapLatestLongLatTests
     {
-        private WeatherMapService service;
-        private WeatherMapService loughboroughService;
-        private WeatherMapService invalidLongService;
-        private WeatherMapService invalidLatService;
+        private WeatherMapService _service;
+        private WeatherMapService _loughboroughService;
+        private WeatherMapService _invalidLongService;
+        private WeatherMapService _invalidLatService;
         private float _longitude = -1.89983f;
         private float _latitude = 52.481419f;
         private float _loughboroughLongitude = -1.2f;
@@ -18,41 +18,41 @@ namespace APIMiniProject
         [OneTimeSetUp]
         public void LongitudeAndLatitudeSetup()
         {
-            service = new WeatherMapService(_latitude, _longitude);
-            loughboroughService = new WeatherMapService(_loughboroughLatitude, _loughboroughLongitude);
-            invalidLongService = new WeatherMapService(_latitude, _invalid);
-            invalidLatService = new WeatherMapService(_invalid, _longitude);
+            _service = new WeatherMapService(_latitude, _longitude);
+            _loughboroughService = new WeatherMapService(_loughboroughLatitude, _loughboroughLongitude);
+            _invalidLongService = new WeatherMapService(_latitude, _invalid);
+            _invalidLatService = new WeatherMapService(_invalid, _longitude);
         }
 
         [Test]
         public void WebCallSuccessCheck()
         {
-            Assert.That(service.DTO.LatestWeather.cod, Is.EqualTo(200));
+            Assert.That(_service.DTO.LatestWeather.cod, Is.EqualTo(200));
         }
 
-        // Known API issue
+        // Known API issue where the API seemingly randomly chooses one of two Brum city IDs for the same co-ords
         [Test]
         public void LongitudeAndLatitudeReturnOneOfTheCorrectCityIDs()
         {
-            Assert.That(service.DTO.LatestWeather.id, Is.EqualTo(2655603).Or.EqualTo(3333125));
+            Assert.That(_service.DTO.LatestWeather.id, Is.EqualTo(2655603).Or.EqualTo(3333125));
         }
 
         [Test]
         public void LongitudeAndLatitudeReturnCorrectCityID()
         {
-            Assert.That(loughboroughService.DTO.LatestWeather.id, Is.EqualTo(2643567));
+            Assert.That(_loughboroughService.DTO.LatestWeather.id, Is.EqualTo(2643567));
         }
 
         [Test]
         public void InvalidLongitudeReturnsErrorMessage()
         {
-            Assert.That(invalidLongService.DTO.LatestWeather.cod, Is.EqualTo(400));
+            Assert.That(_invalidLongService.DTO.LatestWeather.cod, Is.EqualTo(400));
         }
 
         [Test]
         public void InvalidLatitudeReturnsErrorMessage()
         {
-            Assert.That(invalidLatService.DTO.LatestWeather.cod, Is.EqualTo(400));
+            Assert.That(_invalidLatService.DTO.LatestWeather.cod, Is.EqualTo(400));
         }
 
     }

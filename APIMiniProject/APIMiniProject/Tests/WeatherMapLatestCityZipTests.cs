@@ -20,7 +20,6 @@ namespace APIMiniProject
             _service = new WeatherMapService(_zip, _countryCode);
             _invalidZipService = new WeatherMapService(_invalidZip, _countryCode);
             _invalidCountryService = new WeatherMapService(_zip, _invalidCountryCode);
-
         }
 
         [Test]
@@ -30,7 +29,7 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void ZipAndCountryCodeGivesCorrectResponse()
+        public void ZipAndCountryCodeGivesCorrectNameResponse()
         {
             Assert.That(_service.DTO.LatestWeather.name.ToString(), Is.EqualTo("White House"));
         }
