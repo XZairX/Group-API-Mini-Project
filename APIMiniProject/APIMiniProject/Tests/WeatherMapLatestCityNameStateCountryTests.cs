@@ -12,7 +12,7 @@ namespace APIMiniProject
         private const string _countryGB = "gb";
         private const string _countryUS = "Us";
         private const string _countryUSLowercase = "us";
-        private const string _countryUsUppercase = "US";
+        private const string _countryUSUppercase = "US";
         private const string _invalidString = "invalidString";
 
         private WeatherMapService WeatherServiceWithCityStateAndCountry(
@@ -88,7 +88,7 @@ namespace APIMiniProject
         }
 
         [TestCase(_countryUSLowercase)]
-        [TestCase(_countryUsUppercase)]
+        [TestCase(_countryUSUppercase)]
         public void CityNameStateQuery_StateIsValid_ReturnsCountryCodeRegardlessOfLetterCasing(string country)
         {
             var sut = WeatherServiceWithCityStateAndCountry(_city, _state, country);
