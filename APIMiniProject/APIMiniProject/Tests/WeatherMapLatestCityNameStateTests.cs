@@ -2,8 +2,14 @@
 
 namespace APIMiniProject
 {
-    // API doc states to use a state for second parameter but this returns a nullreference exception
-    // Using a country as a second parameter overcomes this issue and the functionality is as intended
+    /*
+     * API doc states to use a state for second parameter but this returns
+     * a NullReferenceException as it seems that a state property does
+     * not exist in the JSON response.
+     * 
+     * Using a country as a second parameter overcomes this issue and the
+     * functionality works as expected.
+     */
     [TestFixture]
     public class WeatherMapCityNameStateTests
     {
