@@ -51,7 +51,7 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 
 ### SP-API Project Board Start
 
-
+![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/Images/sprint-start-1.png)
 
 ### Sprint Lifecycle
 
