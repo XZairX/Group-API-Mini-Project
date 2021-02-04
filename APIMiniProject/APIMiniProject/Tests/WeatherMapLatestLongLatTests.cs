@@ -9,7 +9,7 @@ namespace APIMiniProject
         private readonly float _loughboroughLongitude = -1.2f;
         private readonly float _loughboroughLatitude = 52.7667f;
         private readonly float _invalid = 500f;
-
+      
         private WeatherMapService _service;
         private WeatherMapService _loughboroughService;
         private WeatherMapService _invalidLongService;
