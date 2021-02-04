@@ -1,2 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="APIMiniProject.WeatherMapService">
+    <Position X="1" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherAppService\WeatherMapService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CallManager" />
+      <Property Name="DTO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="APIMiniProject.HTTPManager.LatestWeatherMapCallManager">
+    <Position X="4.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAgAAAAAAgABIAAAAAAAAAAAAIAAAAAAAAACA=</HashCode>
+      <FileName>WeatherAppService\HTTPManager\LatestWeatherMapCallManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.DataHandling.LatestWeatherMapDTO">
+    <Position X="4.5" Y="5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapDTO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Properties" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="APIMiniProject.LatestWeatherRoot">
+    <Position X="8.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAABAAAYAAABBEAAAAAAQIAABABgQ=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="clouds" />
+      <Property Name="main" />
+      <Property Name="wind" />
+      <Property Name="weather" />
+      <Property Name="sys" />
+      <Property Name="coord" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="APIMiniProject.Coord">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.Main">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAIAgAAAAAAACCAAAAAAABAAA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.Wind">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.Clouds">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.Sys">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAQCAAAAAAAAAkA=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIMiniProject.Weather">
+    <Position X="13.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAgQ=</HashCode>
+      <FileName>WeatherAppService\DataHandling\LatestWeatherMapModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>
