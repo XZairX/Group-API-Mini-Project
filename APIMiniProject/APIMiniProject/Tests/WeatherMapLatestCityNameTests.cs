@@ -5,9 +5,9 @@ namespace APIMiniProject
     [TestFixture]
     public class WeatherMapLatestCityNameTests
     {
-        private const string _city = "Birmingham";
-        private const string _cityLowercase = "birmingham";
-        private const string _cityUppercase = "BIRMINGHAM";
+        private const string _city = "London";
+        private const string _cityLowercase = "london";
+        private const string _cityUppercase = "LONDON";
 
         private WeatherMapService WeatherServiceWithCity(string city)
         {
