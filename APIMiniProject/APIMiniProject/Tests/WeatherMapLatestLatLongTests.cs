@@ -2,7 +2,7 @@
 
 namespace APIMiniProject
 {
-    public class WeatherMapLatestLongLatTests
+    public class WeatherMapLatestLatLongTests
     {
         private readonly float _longitude = -1.89983f;
         private readonly float _latitude = 52.481419f;
