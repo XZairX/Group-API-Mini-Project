@@ -2,14 +2,14 @@
 
 namespace APIMiniProject
 {
-    // State cannot be used alone and requires a country to have any changes occur
-    // Using a non-US country will override the state as if it was never supplied
+    // State cannot be used alone and requires a country to have any changes occur.
+    // Using a non-US country will override the state as if it was never supplied.
     [TestFixture]
     public class WeatherMapLatestCityNameStateCountryTests
     {
         private const string _city = "london";
         private const string _state = "oh";
-        private const string _countryGB = "gb";
+        private const string _countryGB = "Gb";
         private const string _countryUS = "Us";
         private const string _countryUSLowercase = "us";
         private const string _countryUSUppercase = "US";
