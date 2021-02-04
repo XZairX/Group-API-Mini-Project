@@ -1,18 +1,55 @@
 ﻿using NUnit.Framework;
-using APIMiniProject.HTTPManager;
 
 namespace APIMiniProject
 {
+    [TestFixture]
     public class WeatherMapLatestCityNameTests
     {
-        public WeatherMapService service;
+        private const string _city = "Birmingham";
 
-        [Test]
-        public void WebCallSuccessCheck()
+        private WeatherMapService WeatherServiceWithCity(string city)
         {
-            service = new WeatherMapService("Birmingham");
-            Assert.That(service.DTO.LatestWeather.name.ToString(), Is.EqualTo(""));
+            return new WeatherMapService(city);
         }
 
+        [Test]
+        public void CityNameQuery_CityIsInvalid_ReturnsStatusCode404()
+        {
+            var sut = WeatherServiceWithCity("Invalid");
+
+            var result = sut.DTO.LatestWeather.cod;
+
+            Assert.That(result, Is.EqualTo(404));
+        }
+
+        [Test]
+        public void CityNameQuery_CityIsValid_ReturnsStatusCode200()
+        {
+            var sut = WeatherServiceWithCity(_city);
+
+            var result = sut.DTO.LatestWeather.cod;
+
+            Assert.That(result, Is.EqualTo(200));
+        }
+
+        [Test]
+        public void CityNameQuery_CityIsValidAndLowerCase_ReturnsCity()
+        {
+            var sut = WeatherServiceWithCity(_city.ToLower());
+
+            var result = sut.DTO.LatestWeather.name;
+
+            Assert.That(result, Is.EqualTo(_city));
+        }
+
+        [Test]
+        public void CityNameQuery_CityIsValidAndUpperCase_ReturnsCity()
+        {
+            var sut = WeatherServiceWithCity(_city.ToUpper());
+
+            var result = sut.DTO.LatestWeather.name;
+
+            Assert.That(result, Is.EqualTo(_city));
+        }
     }
 }

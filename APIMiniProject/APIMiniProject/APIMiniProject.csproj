@@ -76,9 +76,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\WeatherMapLatestCityNameStateCountryTests.cs" />
     <Compile Include="Tests\WeatherMapLatestCityNameTests.cs" />
     <Compile Include="Tests\WeatherMapLatestCityZipTests.cs" />
     <Compile Include="Tests\WeatherMapLatestLongLatTests.cs" />
+    <Compile Include="Tests\WeatherMapLatestCityNameStateTests.cs" />
     <Compile Include="WeatherAppService\DataHandling\LatestWeatherMapDTO.cs" />
     <Compile Include="WeatherAppService\HTTPManager\LatestWeatherMapCallManager.cs" />
     <Compile Include="Tests\WeatherMapLatestCityIDTests.cs" />
@@ -90,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="city.list.json" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
