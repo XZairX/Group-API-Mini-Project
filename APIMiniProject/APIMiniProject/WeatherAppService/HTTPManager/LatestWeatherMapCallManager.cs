@@ -42,7 +42,7 @@ namespace APIMiniProject.HTTPManager
         }
 
         // ALEX
-        public string GetResponseByLongAndLat(double longitude, double latitude)
+        public string GetResponseByLongAndLat(float latitude, float longitude)
         {
             var request = new RestRequest("/weather");
             request.AddParameter("lat", latitude);

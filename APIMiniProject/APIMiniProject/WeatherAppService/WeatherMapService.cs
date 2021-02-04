@@ -34,9 +34,9 @@ namespace APIMiniProject
             DTO.DeserializeRates(WeatherById);
         }
 
-        public WeatherMapService(double longitude, double latitude)
+        public WeatherMapService(float latitude, float longitude)
         {
-            WeatherById = CallManager.GetResponseByLongAndLat(longitude, latitude);
+            WeatherById = CallManager.GetResponseByLongAndLat(latitude, longitude);
             DTO.DeserializeRates(WeatherById);   
         }
 
