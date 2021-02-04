@@ -1,18 +1,17 @@
 ﻿using NUnit.Framework;
-using APIMiniProject.HTTPManager;
 
 namespace APIMiniProject
 {
     public class WeatherMapLatestZipTests
     {
+        private readonly int _zip = 37188;
+        private readonly int _invalidZip = 0;
+        private readonly string _countryCode = "US";
+        private readonly string _invalidCountryCode = "USA";
+
         private WeatherMapService _service;
         private WeatherMapService _invalidZipService;
         private WeatherMapService _invalidCountryService;
-        private int _zip = 37188;
-        private int _invalidZip = 0;
-        private string _countryCode = "US";
-        private string _invalidCountryCode = "USA";
-
 
         [OneTimeSetUp]
         public void ZipSetup()
