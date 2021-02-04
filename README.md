@@ -39,13 +39,13 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 
 ### Sprint Definition of Done
 
-- [ ] All user stories are marked as done
-- [ ] All user stories have been covered by tests
-- [ ] All bugs/issues have been recorded
-- [ ] All tests pass
-- [ ] The product has been reviewed and approved
-- [ ] The framework is published to GitHub before 05/02/2021, 11:00
-- [ ] The project has a complete README.md file
+- [x] All user stories are marked as done
+- [x] All user stories have been covered by tests
+- [x] All bugs/issues have been recorded
+- [x] All tests pass
+- [x] The product has been reviewed and approved
+- [x] The framework is published to GitHub before 05/02/2021, 11:00
+- [x] The project has a complete README.md file
 
 
 
