@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using APIMiniProject.HTTPManager;
 
 namespace APIMiniProject
 {
@@ -13,6 +12,8 @@ namespace APIMiniProject
         public void IDSetup()
         {
             _service = new WeatherMapService(2655603);
+            _invalidIDService = new WeatherMapService(-1);
+            _notFoundIDService = new WeatherMapService(37188);
         }
 
         [Test]
@@ -24,14 +25,12 @@ namespace APIMiniProject
         [Test]
         public void RequestNotFoundByCityIdReturns400()
         {
-            _invalidIDService = new WeatherMapService(-1);
             Assert.That(_invalidIDService.DTO.Properties.cod, Is.EqualTo(400));
         }
 
         [Test]
         public void RequestNotFoundByCityIdReturns404()
         {
-            _notFoundIDService = new WeatherMapService(37188);
             Assert.That(_notFoundIDService.DTO.Properties.cod, Is.EqualTo(404));
         }
 
