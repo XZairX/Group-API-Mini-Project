@@ -10,6 +10,7 @@ namespace APIMiniProject
         {
             _client = new RestClient(WeatherMapConfigReader.BaseUrl);
         }
+
         public IRestResponse Execute(RestRequest request)
         {
             return _client.Execute(request);

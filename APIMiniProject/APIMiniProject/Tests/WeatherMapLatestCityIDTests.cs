@@ -18,33 +18,33 @@ namespace APIMiniProject
         [Test]
         public void SuccesfulRequestByCityIdReturns200()
         {
-            Assert.That(_service.DTO.LatestWeather.cod, Is.EqualTo(200));
+            Assert.That(_service.DTO.Properties.cod, Is.EqualTo(200));
         }
 
         [Test]
         public void RequestNotFoundByCityIdReturns400()
         {
             _invalidIDService = new WeatherMapService(-1);
-            Assert.That(_invalidIDService.DTO.LatestWeather.cod, Is.EqualTo(400));
+            Assert.That(_invalidIDService.DTO.Properties.cod, Is.EqualTo(400));
         }
 
         [Test]
         public void RequestNotFoundByCityIdReturns404()
         {
             _notFoundIDService = new WeatherMapService(37188);
-            Assert.That(_notFoundIDService.DTO.LatestWeather.cod, Is.EqualTo(404));
+            Assert.That(_notFoundIDService.DTO.Properties.cod, Is.EqualTo(404));
         }
 
         [Test]
         public void JSONTest_ReturnsCorrectCountryGivenID()
         {
-            Assert.That(_service.DTO.LatestWeather.sys.country.ToString(), Is.EqualTo("GB"));
+            Assert.That(_service.DTO.Properties.sys.country.ToString(), Is.EqualTo("GB"));
         }
 
         [Test]
         public void JSONTest_ReturnsCorrectCountryNameGivenID()
         {
-            Assert.That(_service.DTO.LatestWeather.name.ToString(), Is.EqualTo("Birmingham"));
+            Assert.That(_service.DTO.Properties.name.ToString(), Is.EqualTo("Birmingham"));
         }
     }
 }

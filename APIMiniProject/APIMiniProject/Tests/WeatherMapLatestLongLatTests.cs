@@ -27,32 +27,32 @@ namespace APIMiniProject
         [Test]
         public void WebCallSuccessCheck()
         {
-            Assert.That(service.DTO.LatestWeather.cod, Is.EqualTo(200));
+            Assert.That(service.DTO.Properties.cod, Is.EqualTo(200));
         }
 
         // Known API issue
         [Test]
         public void LongitudeAndLatitudeReturnOneOfTheCorrectCityIDs()
         {
-            Assert.That(service.DTO.LatestWeather.id, Is.EqualTo(2655603).Or.EqualTo(3333125));
+            Assert.That(service.DTO.Properties.id, Is.EqualTo(2655603).Or.EqualTo(3333125));
         }
 
         [Test]
         public void LongitudeAndLatitudeReturnCorrectCityID()
         {
-            Assert.That(loughboroughService.DTO.LatestWeather.id, Is.EqualTo(2643567));
+            Assert.That(loughboroughService.DTO.Properties.id, Is.EqualTo(2643567));
         }
 
         [Test]
         public void InvalidLongitudeReturnsErrorMessage()
         {
-            Assert.That(invalidLongService.DTO.LatestWeather.cod, Is.EqualTo(400));
+            Assert.That(invalidLongService.DTO.Properties.cod, Is.EqualTo(400));
         }
 
         [Test]
         public void InvalidLatitudeReturnsErrorMessage()
         {
-            Assert.That(invalidLatService.DTO.LatestWeather.cod, Is.EqualTo(400));
+            Assert.That(invalidLatService.DTO.Properties.cod, Is.EqualTo(400));
         }
 
     }
