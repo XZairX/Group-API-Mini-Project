@@ -5,11 +5,10 @@ namespace APIMiniProject
     [TestFixture]
     public class WeatherMapCityNameStateTests
     {
-        private const string _city = "London";
-        private const string _state = "Us";
-        private const string _stateLowercase = "us";
+        private const string _city = "london";
+        private const string _state = "us";
         private const string _stateUppercase = "US";
-        private const string _invalidString = "InvalidString";
+        private const string _invalidString = "invalidString";
 
         private WeatherMapService WeatherServiceWithCityAndState(
             string city, string state)
@@ -38,13 +37,13 @@ namespace APIMiniProject
         }
 
         [Test]
-        public void LondonCity_DefaultValue_ReturnsCountryCodeOfGB()
+        public void LondonCity_DefaultValue_ReturnsCountryCodeNotEqualToUS()
         {
             var sut = new WeatherMapService(_city);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
-            Assert.That(result, Is.EqualTo("GB"));
+            Assert.That(result, Is.Not.EqualTo("US"));
         }
 
         [Test]
@@ -57,7 +56,7 @@ namespace APIMiniProject
             Assert.That(result, Is.EqualTo("US"));
         }
 
-        [TestCase(_stateLowercase)]
+        [TestCase(_state)]
         [TestCase(_stateUppercase)]
         public void CityNameStateQuery_StateIsValid_ReturnsCountryCodeRegardlessOfLetterCasing(string state)
         {

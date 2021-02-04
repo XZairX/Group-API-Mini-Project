@@ -5,8 +5,7 @@ namespace APIMiniProject
     [TestFixture]
     public class WeatherMapLatestCityNameTests
     {
-        private const string _city = "London";
-        private const string _cityLowercase = "london";
+        private const string _city = "london";
         private const string _cityUppercase = "LONDON";
 
         private WeatherMapService WeatherServiceWithCity(string city)
@@ -17,7 +16,7 @@ namespace APIMiniProject
         [Test]
         public void CityNameQuery_CityIsInvalid_ReturnsStatusCode404()
         {
-            var sut = WeatherServiceWithCity("InvalidString");
+            var sut = WeatherServiceWithCity("invalidString");
 
             var result = sut.DTO.LatestWeather.cod;
 
@@ -34,7 +33,7 @@ namespace APIMiniProject
             Assert.That(result, Is.EqualTo(200));
         }
 
-        [TestCase(_cityLowercase)]
+        [TestCase(_city)]
         [TestCase(_cityUppercase)]
         public void CityNameQuery_CityIsValid_ReturnsCityRegardlessOfLetterCasing(string city)
         {
