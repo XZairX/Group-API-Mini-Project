@@ -9,7 +9,7 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 
 
 
-![](https://github.com/XZairX/Group-API-Mini-Project/tree/main/Images/ClassDiagram.png)
+![](https://github.com/XZairX/Group-API-Mini-Project/blob/main/Images/ClassDiagram.png)
 
 
 
