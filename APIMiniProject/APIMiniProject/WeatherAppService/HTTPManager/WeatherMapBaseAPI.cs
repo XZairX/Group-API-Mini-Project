@@ -1,15 +1,10 @@
 ﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APIMiniProject
 {
     public class WeatherMapBaseAPI
     {
-        private IRestClient _client;
+        private readonly IRestClient _client;
 
         public WeatherMapBaseAPI()
         {
@@ -21,7 +16,7 @@ namespace APIMiniProject
             return _client.Execute(request);
         }
 
-        public IRestResponse Execute(RestRequest request, RestSharp.Method method)
+        public IRestResponse Execute(RestRequest request, Method method)
         {
             return _client.Execute(request, method);
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace APIMiniProject
 {
@@ -68,5 +63,4 @@ namespace APIMiniProject
         public string description { get; set; }
         public string icon { get; set; }
     }
-
 }
