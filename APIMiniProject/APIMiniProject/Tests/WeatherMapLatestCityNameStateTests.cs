@@ -2,13 +2,14 @@
 
 namespace APIMiniProject
 {
-    //State ("OH" Ohio for London) seems to be broken. Works with country code though?
     [TestFixture]
     public class WeatherMapCityNameStateTests
     {
         private const string _city = "London";
-        private const string _state = "US";
-        private const string _invalidString = "invalidString";
+        private const string _state = "Us";
+        private const string _stateLowercase = "us";
+        private const string _stateUppercase = "US";
+        private const string _invalidString = "InvalidString";
 
         private WeatherMapService WeatherServiceWithCityAndState(
             string city, string state)
@@ -50,6 +51,17 @@ namespace APIMiniProject
         public void LondonCity_USCountry_ReturnsCountryCodeOfUS()
         {
             var sut = WeatherServiceWithCityAndState(_city, _state);
+
+            var result = sut.DTO.LatestWeather.sys.country;
+
+            Assert.That(result, Is.EqualTo("US"));
+        }
+
+        [TestCase(_stateLowercase)]
+        [TestCase(_stateUppercase)]
+        public void CityNameStateQuery_StateIsValid_ReturnsCountryCodeRegardlessOfLetterCasing(string state)
+        {
+            var sut = WeatherServiceWithCityAndState(_city, state);
 
             var result = sut.DTO.LatestWeather.sys.country;
 
