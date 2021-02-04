@@ -8,42 +8,42 @@ namespace APIMiniProject
         public LatestWeatherMapCallManager CallManager { get; set; } = new LatestWeatherMapCallManager();
         public LatestWeatherMapDTO DTO { get; set; } = new LatestWeatherMapDTO();
 
-        public string WeatherById { get; set; }
+        public string WeatherResponse { get; set; }
 
         public WeatherMapService(int id)
         {
-            WeatherById = CallManager.GetResponseByCityID(id);
-            DTO.DeserializeRates(WeatherById);
+            WeatherResponse = CallManager.GetResponseByCityID(id);
+            DTO.DeserializeRates(WeatherResponse);
         }
 
         public WeatherMapService(string name)
         {
-            WeatherById = CallManager.GetResponseByCityName(name);
-            DTO.DeserializeRates(WeatherById);
+            WeatherResponse = CallManager.GetResponseByCityName(name);
+            DTO.DeserializeRates(WeatherResponse);
         }
 
         public WeatherMapService(string name, string stateCode)
         {
-            WeatherById = CallManager.GetResponseByCityNameState(name, stateCode);
-            DTO.DeserializeRates(WeatherById);
+            WeatherResponse = CallManager.GetResponseByCityNameState(name, stateCode);
+            DTO.DeserializeRates(WeatherResponse);
         }
 
         public WeatherMapService(string name, string stateCode, string countryCode)
         {            
-            WeatherById = CallManager.GetResponseByCityNameStateCountry(name, stateCode, countryCode);
-            DTO.DeserializeRates(WeatherById);
+            WeatherResponse = CallManager.GetResponseByCityNameStateCountry(name, stateCode, countryCode);
+            DTO.DeserializeRates(WeatherResponse);
         }
 
         public WeatherMapService(float latitude, float longitude)
         {
-            WeatherById = CallManager.GetResponseByLongAndLat(latitude, longitude);
-            DTO.DeserializeRates(WeatherById);   
+            WeatherResponse = CallManager.GetResponseByLatAndLong(latitude, longitude);
+            DTO.DeserializeRates(WeatherResponse);   
         }
 
         public WeatherMapService(int zip, string countryCode)
         {
-            WeatherById = CallManager.GetResponseByZip(zip, countryCode);
-            DTO.DeserializeRates(WeatherById);
+            WeatherResponse = CallManager.GetResponseByZip(zip, countryCode);
+            DTO.DeserializeRates(WeatherResponse);
         }
     }
 }

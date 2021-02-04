@@ -2,13 +2,17 @@
 
 namespace APIMiniProject
 {
+    // State cannot be used alone and requires a country to have any changes occur
+    // Using a non-US country will override the state as if it was never supplied
     [TestFixture]
     public class WeatherMapLatestCityNameStateCountryTests
     {
-        private const string _city = "London";
-        private const string _state = "OH";
-        private const string _countryGB = "GB";
-        private const string _countryUS = "US";
+        private const string _city = "london";
+        private const string _state = "oh";
+        private const string _countryGB = "gb";
+        private const string _countryUS = "Us";
+        private const string _countryUSLowercase = "us";
+        private const string _countryUsUppercase = "US";
         private const string _invalidString = "invalidString";
 
         private WeatherMapService WeatherServiceWithCityStateAndCountry(
@@ -23,7 +27,7 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _invalidString, _invalidString, _invalidString);
 
-            var result = sut.DTO.LatestWeather.cod;
+            var result = sut.DTO.Properties.cod;
 
             Assert.That(result, Is.EqualTo(404));
         }
@@ -34,73 +38,62 @@ namespace APIMiniProject
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _invalidString, _invalidString);
 
-            var result = sut.DTO.LatestWeather.cod;
+            var result = sut.DTO.Properties.cod;
 
             Assert.That(result, Is.EqualTo(200));
         }
 
         [Test]
-        public void LondonCity_DefaultValue_ReturnsCountryCodeOfGB()
-        {
-            var sut = new WeatherMapService(_city);
-
-            var result = sut.DTO.LatestWeather.sys.country;
-
-            Assert.That(result, Is.EqualTo("GB"));
-        }
-        //---
-        //State cannot be used alone and requires a country
-        //Using a non-US country will override the state
-        [Test]
-        public void LondonCity_USCountry_ReturnsCountryCodeOfUS()
-        {
-            var sut = new WeatherMapService(_city, _countryUS);
-
-            var result = sut.DTO.LatestWeather.sys.country;
-
-            Assert.That(result, Is.EqualTo("US"));
-        }
-        //---
-        [Test]
-        public void LondonCity_InvalidStateAndUSCountry_ReturnsDefaultCountryCode()
+        public void LondonCity_InvalidStateAndUSCountry_ReturnsLondonDefaultCountryCode()
         {
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _invalidString, _countryUS);
 
-            var result = sut.DTO.LatestWeather.sys.country;
+            var result = sut.DTO.Properties.sys.country;
 
-            Assert.That(result, Is.EqualTo("GB"));
+            Assert.That(result, Is.Not.EqualTo("US"));
         }
 
         [Test]
-        public void LondonCity_StateAndInvalidCountry_ReturnsDefaultCountryCode()
+        public void LondonCity_StateAndInvalidCountry_ReturnsLondonDefaultCountryCode()
         {
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _invalidString);
 
-            var result = sut.DTO.LatestWeather.sys.country;
+            var result = sut.DTO.Properties.sys.country;
 
-            Assert.That(result, Is.EqualTo("GB"));
+            Assert.That(result, Is.Not.EqualTo("US"));
         }
 
         [Test]
-        public void LondonCity_StateAndUKCountry_ReturnsDefaultCountryCodeOfGB()
+        public void LondonCity_StateAndUKCountry_ReturnsLondonDefaultCountryCode()
         {
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _countryGB);
 
-            var result = sut.DTO.LatestWeather.sys.country;
+            var result = sut.DTO.Properties.sys.country;
 
-            Assert.That(result, Is.EqualTo("GB"));
+            Assert.That(result, Is.Not.EqualTo("US"));
         }
 
         [Test]
-        public void LondonCity_StateAndUSCountry_ReturnsCountryCodeOfUS()
+        public void LondonCity_StateAndUSCountry_ReturnsUSCountryCode()
         {
             var sut = WeatherServiceWithCityStateAndCountry(
                 _city, _state, _countryUS);
 
-            var result = sut.DTO.LatestWeather.sys.country;
+            var result = sut.DTO.Properties.sys.country;
+
+            Assert.That(result, Is.EqualTo("US"));
+        }
+
+        [TestCase(_countryUSLowercase)]
+        [TestCase(_countryUsUppercase)]
+        public void CityNameStateQuery_StateIsValid_ReturnsCountryCodeRegardlessOfLetterCasing(string country)
+        {
+            var sut = WeatherServiceWithCityStateAndCountry(_city, _state, country);
+
+            var result = sut.DTO.Properties.sys.country;
 
             Assert.That(result, Is.EqualTo("US"));
         }

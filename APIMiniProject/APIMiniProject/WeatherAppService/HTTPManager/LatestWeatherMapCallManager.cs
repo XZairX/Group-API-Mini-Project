@@ -32,7 +32,7 @@ namespace APIMiniProject.HTTPManager
             return FinishRequest(request);
         }
 
-        public string GetResponseByLongAndLat(float latitude, float longitude)
+        public string GetResponseByLatAndLong(float latitude, float longitude)
         {
             var request = new RestRequest("/weather");
             request.AddParameter("lat", latitude);
