@@ -44,7 +44,7 @@ Deliver an API test framework for the Current Weather service for OpenWeatherAPI
 - [ ] All bugs/issues have been recorded
 - [ ] All tests pass
 - [ ] The product has been reviewed and approved
-- [ ] The framework is published to GitHub before 05/02/202, 11:00
+- [ ] The framework is published to GitHub before 05/02/2021, 11:00
 - [ ] The project has a complete README.md file
 
 
@@ -100,4 +100,4 @@ One observation we made once testing the API was that we potentially chose a lim
 
 
 ### 
-.
+
