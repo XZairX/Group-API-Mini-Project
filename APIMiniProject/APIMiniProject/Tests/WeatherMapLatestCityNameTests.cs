@@ -19,7 +19,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCity("invalidString");
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(404));
         }
@@ -29,7 +29,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCity(_city);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(200));
         }
@@ -40,7 +40,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCity(city);
 
-            var result = sut.DTO.Properties.name;
+            var result = sut.DTO.Properties.Name;
             
             Assert.That(result, Is.EqualTo(_city));
         }

@@ -2,8 +2,14 @@
 
 namespace APIMiniProject
 {
-    // API doc states to use a state for second parameter but this returns a nullreference exception
-    // Using a country as a second parameter overcomes this issue and the functionality is as intended
+    /*
+     * API doc states to use a state for second parameter but this returns
+     * a NullReferenceException as it seems that a state property does
+     * not exist in the JSON response.
+     * 
+     * Using a country as a second parameter overcomes this issue and the
+     * functionality works as expected.
+     */
     [TestFixture]
     public class WeatherMapCityNameStateTests
     {
@@ -24,7 +30,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_invalidString, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(404));
         }
@@ -34,7 +40,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, _invalidString);
 
-            var result = sut.DTO.Properties.cod;
+            var result = sut.DTO.Properties.Cod;
 
             Assert.That(result, Is.EqualTo(200));
         }
@@ -44,7 +50,7 @@ namespace APIMiniProject
         {
             var sut = new WeatherMapService(_city);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.Not.EqualTo("US"));
         }
@@ -54,7 +60,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, _state);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }
@@ -65,7 +71,7 @@ namespace APIMiniProject
         {
             var sut = WeatherServiceWithCityAndState(_city, state);
 
-            var result = sut.DTO.Properties.sys.country;
+            var result = sut.DTO.Properties.Sys.Country;
 
             Assert.That(result, Is.EqualTo("US"));
         }
